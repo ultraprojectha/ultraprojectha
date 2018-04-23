@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>Верно <font color="green" id="suc"></font> Не верно <font color="red" id="err"></font></p>
+	<font color="" id="error"></font>
+	<p id="ex"><font id="num1">0</font> * <font id="num2">0</font> = ?</p>
+	<input type="text" name="val" id="val">
+	<button onclick="btClick()">Yes</button>
+	<script type="text/javascript">
+		var good = 0, bad = 0;
+		function randomInteger(min, max) {
+			var rand = min - 0.5 + Math.random() * (max - min + 1);
+			rand = Math.round(rand);
+			return rand;
+		}
+		function getEx()
+		{
+			var num1 = randomInteger(0,10);
+			var num2 = randomInteger(0,10); 
+			return {num1, num2};
+		}
+		function checkAnswer(num1, num2, answer)
+		{
+			return num1 * num2 == answer;
+		}
+		var quest = getEx();
+		document.getElementById('num1').innerHTML = quest['num1'];
+		document.getElementById('num2').innerHTML = quest['num2'];
+		function btClick()
+		{
+			if(checkAnswer(quest['num1'], quest['num2'], document.getElementById("val").value))
+			{
+				good++;
+				document.getElementById('suc').innerHTML = good;
+
+				update();
+			}
+			else
+			{
+				bad++;
+				document.getElementById('err').innerHTML = bad;
+				document.getElementById('error').color = 'red';
+				document.getElementById('error').innerHTML = 'Ошибка!';
+			}
+		}
+
+		function update()
+		{
+			quest = getEx();    
+			document.getElementById('error').color = 'green';
+			document.getElementById('error').innerHTML = 'Верно!';
+			document.getElementById('num1').innerHTML = quest['num1'];
+			document.getElementById('num2').innerHTML = quest['num2'];
+		}
+
+	</script>
+</body>
+</html>
