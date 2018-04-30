@@ -39,6 +39,22 @@ function btClick()
 		document.getElementById("userAnswer").value = '';
 	}
 }
+function StartStop()
+{
+	start = !start; 
+	if(start)
+	{
+		(function() {
+			document.getElementById('StartStop').innerHTML = 'Закончить';
+	})();
+	}
+	else
+	{
+		(function() {
+			document.getElementById('StartStop').innerHTML = 'Начать';
+		})();
+	}
+}
 function ckUpdate(e)
 {
 	if(e.keyCode == 13)
