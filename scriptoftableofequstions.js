@@ -1,3 +1,9 @@
+document.getElementById('Answer').setAttribute('onclick','btClick();');
+document.getElementById('StartStop').setAttribute('onclick','StartStop();');
+document.getElementById('StartStop').setAttribute('onkeypress','ckUpdate(event);');
+
+
+
 var good = 0, bad = 0;
 function randomInteger(min, max) {
 	var rand = min - 0.5 + Math.random() * (max - min + 1);
@@ -15,15 +21,15 @@ function checkAnswer(num1, num2, answer)
 	return num1 * num2 == answer;
 }
 var quest = getEx();
-document.getElementById('txtNumber1').innerHTML = quest['txtNumber1'];
-document.getElementById('txtNumber2').innerHTML = quest['txtNumber2'];
+document.getElementById('txtNumber1').innerHTML = quest['num1'];
+document.getElementById('txtNumber2').innerHTML = quest['num2'];
 function btClick()
 {
 	if(!start)
 	{
 		return;
 	}
-	if(checkAnswer(quest['txtNumber1'], quest['txtNumber2'], document.getElementById("userAnswer").value))
+	if(checkAnswer(quest['num1'], quest['num2'], document.getElementById("userAnswer").value))
 	{
 		good++;
 		document.getElementById("userAnswer").value = '';
@@ -67,7 +73,7 @@ function update()
 	quest = getEx();    
 	document.getElementById('error').color = 'green';
 	document.getElementById('error').innerHTML = 'Верно!';
-	document.getElementById('txtNumber1').innerHTML = quest['txtNumber1'];
-	document.getElementById('txtNumber2').innerHTML = quest['txtNumber2'];
+	document.getElementById('txtNumber1').innerHTML = quest['num1'];
+	document.getElementById('txtNumber2').innerHTML = quest['num2'];
 }
 
