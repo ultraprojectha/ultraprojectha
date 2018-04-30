@@ -1,6 +1,12 @@
-document.getElementById('btnAnswer').setAttribute('onclick','btClick();');
-document.getElementById('btnStartStop').setAttribute('onclick','StartStop();');
-document.getElementById('txtUserAnswer').setAttribute('onkeypress','ckUpdate(event);');
+document.getElementById('btnAnswer').addEventListener('click', function (event) {
+  btClick();
+}); 
+document.getElementById('btnStartStop').addEventListener('click', function (event) {
+  StartStop();
+}); 
+document.getElementById('txtUserAnswer').addEventListener('keypress', function (event) {
+  ckUpdate(event);
+}); 
 var start = false;
 
 
