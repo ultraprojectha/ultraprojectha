@@ -8,7 +8,7 @@ document.getElementById('txtUserAnswer').addEventListener('keypress', function (
   ckUpdate(event);
 }); 
 var start = false;
-
+document.getElementById('spnCorrectAnswers').setAttribute('color','green');
 
 var good = 0, bad = 0;
 function randomInteger(min, max) {
