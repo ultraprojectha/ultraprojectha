@@ -1,7 +1,7 @@
 document.getElementById('btnAnswer').setAttribute('onclick','btClick();');
 document.getElementById('btnStartStop').setAttribute('onclick','StartStop();');
 document.getElementById('txtUserAnswer').setAttribute('onkeypress','ckUpdate(event);');
-
+var start = false;
 
 
 var good = 0, bad = 0;
