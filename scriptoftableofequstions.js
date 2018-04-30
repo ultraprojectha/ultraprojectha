@@ -9,6 +9,7 @@ document.getElementById('txtUserAnswer').addEventListener('keypress', function (
 }); 
 var start = false;
 document.getElementById('spnCorrectAnswers').setAttribute('color','green');
+document.getElementById('spnWrongAnswers').setAttribute('color','red');
 
 var good = 0, bad = 0;
 function randomInteger(min, max) {
