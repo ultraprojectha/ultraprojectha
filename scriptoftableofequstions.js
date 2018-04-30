@@ -1,6 +1,6 @@
-document.getElementById('Answer').setAttribute('onclick','btClick();');
-document.getElementById('StartStop').setAttribute('onclick','StartStop();');
-document.getElementById('StartStop').setAttribute('onkeypress','ckUpdate(event);');
+document.getElementById('btnAnswer').setAttribute('onclick','btClick();');
+document.getElementById('btnStartStop').setAttribute('onclick','StartStop();');
+document.getElementById('txtUserAnswer').setAttribute('onkeypress','ckUpdate(event);');
 
 
 
@@ -29,10 +29,10 @@ function btClick()
 	{
 		return;
 	}
-	if(checkAnswer(quest['num1'], quest['num2'], document.getElementById("userAnswer").value))
+	if(checkAnswer(quest['num1'], quest['num2'], document.getElementById("txtUserAnswer").value))
 	{
 		good++;
-		document.getElementById("userAnswer").value = '';
+		document.getElementById("txtUserAnswer").value = '';
 		document.getElementById('spnCorrectAnswers').innerHTML = good;
 		update();
 	}
@@ -40,9 +40,9 @@ function btClick()
 	{
 		bad++;
 		document.getElementById('spnWrongAnswers').innerHTML = bad;
-		document.getElementById('error').color = 'red';
-		document.getElementById('error').innerHTML = 'Ошибка!';
-		document.getElementById("userAnswer").value = '';
+		document.getElementById('fntError').color = 'red';
+		document.getElementById('fntError').innerHTML = 'Ошибка!';
+		document.getElementById("txtUserAnswer").value = '';
 	}
 }
 function StartStop()
@@ -51,13 +51,13 @@ function StartStop()
 	if(start)
 	{
 		(function() {
-			document.getElementById('StartStop').innerHTML = 'Закончить';
+			document.getElementById('btnStartStop').innerHTML = 'Закончить';
 	})();
 	}
 	else
 	{
 		(function() {
-			document.getElementById('StartStop').innerHTML = 'Начать';
+			document.getElementById('btnStartStop').innerHTML = 'Начать';
 		})();
 	}
 }
@@ -71,8 +71,8 @@ function ckUpdate(e)
 function update()
 {
 	quest = getEx();    
-	document.getElementById('error').color = 'green';
-	document.getElementById('error').innerHTML = 'Верно!';
+	document.getElementById('fntError').color = 'green';
+	document.getElementById('fntError').innerHTML = 'Верно!';
 	document.getElementById('txtNumber1').innerHTML = quest['num1'];
 	document.getElementById('txtNumber2').innerHTML = quest['num2'];
 }
